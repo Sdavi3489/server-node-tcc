@@ -22,6 +22,10 @@ const client = new pg.Client(
 
 client.connect();
 
+app.get('/hello', function(req,res){
+    res.send('hello world')
+})
+
 app.post('/perg', function (req, res) {
     client.query({
         text: 'INSERT INTO Pergunta (id_perg,pergunta,image,opcao_a,opcao_b,opcao_c,opcao_d,ver_a,ver_b,ver_c,ver_d,resposta_correta) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',
